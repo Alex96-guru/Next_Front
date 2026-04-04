@@ -47,7 +47,7 @@ header .logo {
     transition: all 0.5s ease;
 }
 
-header .logo .show{
+header .logo.show{
     opacity: 1;
     transform: translateY(0);
 }
