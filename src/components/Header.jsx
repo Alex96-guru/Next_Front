@@ -13,7 +13,7 @@ export default function Header(props){
     return (
         <header className="header">
             <div className='nav'>
-                <div className='logo show'>
+                <div className={show ? 'logo show': 'logo'}>
                     <img src={Logo} alt="Logo"/>
                     <h1>Next</h1>
                 </div>
