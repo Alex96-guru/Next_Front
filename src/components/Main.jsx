@@ -28,6 +28,20 @@ class Main extends Component {
                                         </div>
                                     </div>
                                 </div>
+
+                                <div className='chat-list__item'>
+                                    <span className='chat-list__avatar'><FcBusinessman /></span>
+                                    <div className='chat-list__content'>
+                                        <div className='chat-list__top'>
+                                            <h2 className='chat-list__name'>Дарья Иванова</h2>
+                                            <span className='chat-list__time'>14:32</span>
+                                        </div>
+                                        <div className='chat-list__bottom'>
+                                            <p className='chat-list__preview'>Привет! Как дела?</p>
+                                            <span className='chat-list__badge'>1</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
