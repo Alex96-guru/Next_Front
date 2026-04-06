@@ -1,11 +1,10 @@
 import React from 'react';
+import MainLog from "./main-log.jsx";
 
-class AppLog extends Component {
+class AppLog extends React.Component {
     render() {
         return (
-            <div>
-
-            </div>
+            <MainLog />
         );
     }
 }
