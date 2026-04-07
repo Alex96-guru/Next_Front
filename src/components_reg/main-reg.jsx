@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from '../icons/Logo.svg';
 import { registerUser } from '../register.js';
+import { showHidePassword } from '../register.js';
+import { showHideConfirmPassword } from '../register.js';
 
 
 class MainReg extends Component {
@@ -43,6 +45,7 @@ class MainReg extends Component {
                                 type="text"
                                 placeholder="example@mail.com"
                             />
+                            <small id='email-error' className='email-register-form__hint'></small>
                         </div>
 
                         <div className="register-form__group">
@@ -54,12 +57,13 @@ class MainReg extends Component {
                                     type="password"
                                     placeholder="........"
                                 />
-                                <span id='email-error' className='email-register-form__hint'></span>
+                                <small id='password-error' className='password-register-form__hint'></small>
                                 <button
                                     className="register-form__toggle"
                                     type="button"
                                     aria-label="Показать пароль"
-                                >
+                                    onClick={(e) => showHidePassword(e.target)}>
+                                
                                     <svg viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12Z" />
                                         <circle cx="12" cy="12" r="3.2" />
@@ -78,12 +82,13 @@ class MainReg extends Component {
                                     type="password"
                                     placeholder="........"
                                 />
-                                <span id='confirm-error'></span>
+                                <small id='confirm-error'></small>
                                 <button
                                     className="register-form__toggle"
                                     type="button"
                                     aria-label="Показать подтверждение пароля"
-                                >
+                                    onClick={(e) => showHideConfirmPassword(e.target)}>
+                                
                                     <svg viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12Z" />
                                         <circle cx="12" cy="12" r="3.2" />

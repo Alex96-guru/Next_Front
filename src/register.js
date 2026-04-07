@@ -1,9 +1,31 @@
+export function showHidePassword(target) {
+    const input = document.getElementById("password");
 
+    if (input.getAttribute("type") === "password") {
+        target.classList.add("view");
+        input.setAttribute("type", "text");
+    } else {
+        target.classList.remove("view");
+        input.setAttribute("type", "password");
+    }
+}
+
+export function showHideConfirmPassword(target) {
+    const reInput = document.getElementById("confirm-password");
+
+    if (reInput.getAttribute("type") === "password") {
+        target.classList.add("view");
+        reInput.setAttribute("type", "text");
+    } else {
+        target.classList.remove("view");
+        reInput.setAttribute("type", "password");
+    }
+}
 
 export function registerUser() {
     
     const form = document.getElementById("form"); 
-
+    
     form.addEventListener('submit', async function(event) {
         event.preventDefault();
 
@@ -26,7 +48,6 @@ export function registerUser() {
         const confirm = confirmInput.value;
 
         let hasError = false;
-
 
         nameInput.addEventListener('input', function(event){
             nameInput.style.borderColor = '#ff6a00';
@@ -57,7 +78,7 @@ export function registerUser() {
             hasError = true;
         }
 
-        if(!email.includes('@') || !email.includes('.') || email.legth < 32) {
+        if(!email.includes('@') || !email.includes('.') || email.legth > 48) {
             emailInput.style.borderColor = 'red';
             emailError.innerText = 'Некорректная почта';
             hasError = true;
@@ -94,7 +115,7 @@ export function registerUser() {
         }
 
         try {
-            const response = await fetch("", {
+            const response = await fetch("http://localhost:8086/", {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
@@ -115,4 +136,3 @@ export function registerUser() {
         }
     });
 }
-
