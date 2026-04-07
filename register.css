@@ -38,6 +38,10 @@ a {
     text-decoration: none;
 }
 
+small {
+    color: red;
+}
+
 .register-page {
     min-height: 100vh;
     display: flex;
