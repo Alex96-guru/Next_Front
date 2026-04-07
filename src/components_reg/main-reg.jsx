@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import logo from '../icons/Logo.svg';
-import { registerUser } from '../register';
+import { registerUser } from '../register.js';
+
 
 class MainReg extends Component {
+    componentDidMount() {
+        registerUser();
+    }
+
     render() {
         return (
             <main className="register-page">
