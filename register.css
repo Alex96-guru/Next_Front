@@ -40,6 +40,7 @@ a {
 
 small {
     color: red;
+    font-size: 15px;
 }
 
 .register-page {
@@ -102,7 +103,7 @@ small {
 
 .register-form {
     display: grid;
-    gap: 16px;
+    gap: 25px;
 }
 
 .register-form__group {
@@ -203,6 +204,11 @@ small {
     margin-top: 2px;
     accent-color: #ff8400;
     flex: 0 0 auto;
+}
+
+.register-form__agreement small {
+    position: absolute;
+    top: 795px;
 }
 
 .register-form__agreement a {
