@@ -51,7 +51,7 @@ export function registerUser() {
             termsError.innerText = '';
         });
 
-        if(name.legth == 0) {
+        if(name.length == 0) {
             nameInput.style.borderColor = 'red';
             nameError.innerText = 'Заполните поле';
             hasError = true;
@@ -63,13 +63,13 @@ export function registerUser() {
             hasError = true;
         }
 
-        if(password.legth < 6) {
+        if(password.length < 6) {
             passwordInput.style.borderColor = 'red';
             passwordError.innerText = 'Минимум 6 символов';
             hasError = true;
         }
 
-        if(confirm.legth < 6 || !confirm == password) {
+        if(confirm.length < 6 || !confirm == password) {
             confirmInput.style.borderColor = 'red';
             confirmError.innerText = 'Пароли не совпадают';
             hasError = true;
