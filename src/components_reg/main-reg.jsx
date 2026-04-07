@@ -34,7 +34,7 @@ class MainReg extends Component {
                                 type="text"
                                 placeholder="Ваше имя"
                             />
-                            <span id='name-error' className='name-register-form__hint'></span>
+                            <small id='name-error' className='name-register-form__hint'></small>
                         </div>
 
                         <div className="register-form__group">
