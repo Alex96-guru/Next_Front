@@ -108,15 +108,15 @@ export function registerUser() {
         }
 
         const newPost = {
-            name,
-            email,
-            password,
-            confirm,
+            name: name,
+            email: email,
+            password: password,
+            confirm: confirm,
             terms: terms
         };
 
         try {
-            const response = await fetch('http://localhost:8086/auth/register/', {
+            const response = await fetch('http://localhost:8086/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -146,25 +146,25 @@ export function registerUser() {
 
     nameInput?.addEventListener('input', function () {
         nameInput.style.borderColor = '';
-        nameError.innerText = '';
+        document.getElementById("name-error").innerText = '';
     });
 
     emailInput?.addEventListener('input', function () {
         emailInput.style.borderColor = '';
-        emailError.innerText = '';
+        document.getElementById("email-error").innerText = '';
     });
 
     passwordInput?.addEventListener('input', function () {
         passwordInput.style.borderColor = '';
-        passwordError.innerText = '';
+        document.getElementById("password-error").innerText = '';
     });
 
     confirmInput?.addEventListener('input', function () {
         confirmInput.style.borderColor = '';
-        confirmError.innerText = '';
+        document.getElementById("confirm-error").innerText = '';
     });
 
     termsBox?.addEventListener('change', function () {
-        termsError.innerText = '';
+        document.getElementById("terms-error").innerText = '';
     });
 }
