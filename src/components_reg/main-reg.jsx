@@ -114,7 +114,7 @@ class MainReg extends Component {
                     </div>
 
                     <p className="register-login">
-                        Уже есть аккаунт? <a href="../../Login.html">Войти</a>
+                        Уже есть аккаунт? <a href="../login/Login.html">Войти</a>
                     </p>
                 </section>
             </main>

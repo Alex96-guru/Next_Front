@@ -13,7 +13,7 @@ export default function Header() {
     return (
         <header className="header">
             <div className='nav'>
-                <a href="../../Login.html" className={show ? 'logo show' : 'logo'}>
+                <a href="auth/login/Login.html" className={show ? 'logo show' : 'logo'}>
                     <img src={Logo} alt="Logo" />
                     <h1>Next</h1>
                 </a>
