@@ -81,6 +81,7 @@ export function registerUser() {
         if(email.legth == 0) {
             emailInput.style.borderColor = 'red';
             emailError.innerText = 'Заполните поле';
+            hasError = true;
         }
 
         if(!email.includes('@') || !email.includes('.') || email.legth > 48) {
@@ -95,8 +96,14 @@ export function registerUser() {
             hasError = true;
         }
 
-        if(confirm.length < 6 || !confirm == password) {
+        if(confirm.length < 6) {
             confirmInput.style.borderColor = 'red';
+            confirmError.innerText = 'Минимум 6 символов';
+            hasError = true;
+        }
+
+        if(!confirm == password) {
+            confirmError.style.borderColor = 'red';
             confirmError.innerText = 'Пароли не совпадают';
             hasError = true;
         }
@@ -120,7 +127,7 @@ export function registerUser() {
         }
 
         try {
-            const response = await fetch("http://localhost:8086/", {
+            const response = await fetch("http://localhost:8086/auth/register/", {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
