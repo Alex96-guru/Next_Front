@@ -143,25 +143,25 @@ export function registerUser() {
 
     nameInput?.addEventListener('input', function () {
         nameInput.style.borderColor = '';
-        document.getElementById('name-error').innerText = '';
+        nameError.innerText = '';
     });
 
     emailInput?.addEventListener('input', function () {
         emailInput.style.borderColor = '';
-        document.getElementById('email-error').innerText = '';
+        emailError.innerText = '';
     });
 
     passwordInput?.addEventListener('input', function () {
         passwordInput.style.borderColor = '';
-        document.getElementById('password-error').innerText = '';
+        passwordError.innerText = '';
     });
 
     confirmInput?.addEventListener('input', function () {
         confirmInput.style.borderColor = '';
-        document.getElementById('confirm-error').innerText = '';
+        confirmError.innerText = '';
     });
 
     termsBox?.addEventListener('change', function () {
-        document.getElementById('terms-error').innerText = '';
+        termsError.innerText = '';
     });
 }
