@@ -38,6 +38,10 @@ a {
     text-decoration: none;
 }
 
+small {
+    color: red;
+}
+
 .register-page {
     min-height: 100vh;
     display: flex;
@@ -172,6 +176,15 @@ a {
     line-height: 1.4;
     color: #97a3b4;
     margin-top: -2px;
+}
+
+.email-register-form__hint {
+    position: absolute;
+    top: -43px;
+    right: 193px;
+    color: red;
+    font-size: 12px;
+
 }
 
 .register-form__agreement {
