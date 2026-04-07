@@ -70,7 +70,6 @@ class MainReg extends Component {
                                     </svg>
                                 </button>
                             </div>
-                            <span id='password-error' className="register-form__hint"></span>
                         </div>
 
                         <div className="register-form__group">
