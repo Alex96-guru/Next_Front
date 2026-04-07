@@ -150,7 +150,7 @@ small {
 
 .register-form__toggle {
     position: absolute;
-    top: 50%;
+    top: 35%;
     right: 14px;
     transform: translateY(-50%);
     width: 20px;
