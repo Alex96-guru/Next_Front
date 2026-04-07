@@ -40,7 +40,7 @@ class MainReg extends Component {
                             <input
                                 id="email"
                                 name="email"
-                                type="email"
+                                type="text"
                                 placeholder="example@mail.com"
                             />
                         </div>
