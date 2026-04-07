@@ -78,6 +78,11 @@ export function registerUser() {
             hasError = true;
         }
 
+        if(email.legth == 0) {
+            emailInput.style.borderColor = 'red';
+            emailError.innerText = 'Заполните поле';
+        }
+
         if(!email.includes('@') || !email.includes('.') || email.legth > 48) {
             emailInput.style.borderColor = 'red';
             emailError.innerText = 'Некорректная почта';
