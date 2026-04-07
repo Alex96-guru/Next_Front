@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../icons/Logo.svg';
+import { registerUser } from '../register';
 
 class MainReg extends Component {
     render() {
@@ -17,7 +18,7 @@ class MainReg extends Component {
                         <p>Создайте новый аккаунт</p>
                     </header>
 
-                    <form className="register-form">
+                    <form id='form' className="register-form">
                         <div className="register-form__group">
                             <label htmlFor="name">Имя</label>
                             <input
@@ -26,6 +27,7 @@ class MainReg extends Component {
                                 type="text"
                                 placeholder="Ваше имя"
                             />
+                            <span id='name-error' className='name-register-form__hint'></span>
                         </div>
 
                         <div className="register-form__group">
@@ -47,6 +49,7 @@ class MainReg extends Component {
                                     type="password"
                                     placeholder="........"
                                 />
+                                <span id='email-error' className='email-register-form__hint'></span>
                                 <button
                                     className="register-form__toggle"
                                     type="button"
@@ -58,18 +61,19 @@ class MainReg extends Component {
                                     </svg>
                                 </button>
                             </div>
-                            <span className="register-form__hint">Минимум 6 символов</span>
+                            <span id='password-error' className="register-form__hint"></span>
                         </div>
 
                         <div className="register-form__group">
                             <label htmlFor="confirmPassword">Подтвердите пароль</label>
                             <div className="register-form__password">
                                 <input
-                                    id="confirmPassword"
+                                    id="confirm-password"
                                     name="confirmPassword"
                                     type="password"
                                     placeholder="........"
                                 />
+                                <span id='confirm-error'></span>
                                 <button
                                     className="register-form__toggle"
                                     type="button"
@@ -84,10 +88,11 @@ class MainReg extends Component {
                         </div>
 
                         <label className="register-form__agreement">
-                            <input type="checkbox" name="agreement" />
+                            <input id='terms' type="checkbox" name="agreement" />
                             <span>
                                 Я согласен с <a href="/">условиями использования</a> и <a href="/">политикой конфиденциальности</a>
                             </span>
+                            <small id='terms-error'></small>
                         </label>
 
                         <button className="register-form__submit" type="submit">
