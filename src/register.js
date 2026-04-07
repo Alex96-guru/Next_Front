@@ -116,7 +116,7 @@ export function registerUser() {
         };
 
         try {
-            const response = await fetch('http://localhost:8086/auth/register', {
+            const response = await fetch('http://26.167.71.18:8086/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
