@@ -102,7 +102,7 @@ export function registerUser() {
             hasError = true;
         }
 
-        if(!confirm == password) {
+        if(confirm !== password) {
             confirmError.style.borderColor = 'red';
             confirmError.innerText = 'Пароли не совпадают';
             hasError = true;
