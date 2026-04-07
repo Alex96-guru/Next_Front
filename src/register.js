@@ -101,6 +101,8 @@ export function registerUser() {
             hasError = true;
         }
 
+        let terms = true;
+
         if (hasError) {
             return;
         }
@@ -109,7 +111,8 @@ export function registerUser() {
             name,
             email,
             password,
-            confirm
+            confirm,
+            terms: terms
         };
 
         try {
