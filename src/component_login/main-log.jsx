@@ -68,7 +68,7 @@ class MainLog extends Component {
                     </div>
 
                     <p className="login-register">
-                        Нет аккаунта? <a href="/">Зарегистрироваться</a>
+                        Нет аккаунта? <a href="../../Register.html">Зарегистрироваться</a>
                     </p>
                 </section>
             </main>
