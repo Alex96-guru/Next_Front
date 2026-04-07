@@ -104,6 +104,12 @@ export function registerUser() {
 
             const text = await response.text();
 
+            if(text == "Успешно") {
+                return;
+            }
+
+            emailError.innerText = text;
+
         } catch(error) {
             console.error("Ошибка: " + error);
         }
