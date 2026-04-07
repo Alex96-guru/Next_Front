@@ -38,11 +38,6 @@ a {
     text-decoration: none;
 }
 
-small {
-    color: red;
-    font-size: 15px;
-}
-
 .register-page {
     min-height: 100vh;
     display: flex;
@@ -52,7 +47,7 @@ small {
 }
 
 .register-card {
-    width: min(100%, 362px);
+    width: min(100%, 430px);
     background: #ffffff;
     border-radius: 26px;
     box-shadow: var(--card-shadow);
@@ -103,7 +98,9 @@ small {
 
 .register-form {
     display: grid;
-    gap: 25px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    width: 100%;
 }
 
 .register-form__group {
@@ -150,7 +147,7 @@ small {
 
 .register-form__toggle {
     position: absolute;
-    top: 35%;
+    top: 50%;
     right: 14px;
     transform: translateY(-50%);
     width: 20px;
@@ -172,30 +169,27 @@ small {
     stroke-linejoin: round;
 }
 
-.register-form__hint {
-    font-size: 12px;
-    line-height: 1.4;
-    color: #97a3b4;
-    margin-top: -2px;
-}
-
-.email-register-form__hint {
-    position: absolute;
-    top: -43px;
-    right: 193px;
+.register-form small {
+    display: block;
+    min-height: 16px;
     color: red;
     font-size: 12px;
-
+    line-height: 1.35;
 }
 
 .register-form__agreement {
-    display: flex;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 14px minmax(0, 1fr);
+    align-items: start;
     gap: 10px;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.45;
     color: #5c6880;
     cursor: pointer;
+}
+
+.register-form__agreement span {
+    max-width: 250px;
 }
 
 .register-form__agreement input {
@@ -207,8 +201,8 @@ small {
 }
 
 .register-form__agreement small {
-    position: absolute;
-    top: 795px;
+    grid-column: 2;
+    padding-left: 0;
 }
 
 .register-form__agreement a {
@@ -259,5 +253,9 @@ small {
 @media (max-width: 420px) {
     .register-card {
         padding: 24px 18px 24px;
+    }
+
+    .register-form__agreement span {
+        white-space: normal;
     }
 }

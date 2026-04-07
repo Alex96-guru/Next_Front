@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../icons/Logo.svg';
-import { registerUser } from '../register.js';
-import { showHidePassword } from '../register.js';
-import { showHideConfirmPassword } from '../register.js';
-
+import { registerUser, showHidePassword, showHideConfirmPassword } from '../register.js';
 
 class MainReg extends Component {
     componentDidMount() {
@@ -25,7 +22,7 @@ class MainReg extends Component {
                         <p>Создайте новый аккаунт</p>
                     </header>
 
-                    <form id='form' className="register-form">
+                    <form id="form" className="register-form">
                         <div className="register-form__group">
                             <label htmlFor="name">Имя</label>
                             <input
@@ -34,7 +31,7 @@ class MainReg extends Component {
                                 type="text"
                                 placeholder="Ваше имя"
                             />
-                            <small id='name-error' className='name-register-form__hint'></small>
+                            <small id="name-error" className="name-register-form__hint"></small>
                         </div>
 
                         <div className="register-form__group">
@@ -45,7 +42,7 @@ class MainReg extends Component {
                                 type="text"
                                 placeholder="example@mail.com"
                             />
-                            <small id='email-error' className='email-register-form__hint'></small>
+                            <small id="email-error" className="email-register-form__hint"></small>
                         </div>
 
                         <div className="register-form__group">
@@ -57,23 +54,23 @@ class MainReg extends Component {
                                     type="password"
                                     placeholder="........"
                                 />
-                                <small id='password-error' className='password-register-form__hint'></small>
                                 <button
                                     className="register-form__toggle"
                                     type="button"
                                     aria-label="Показать пароль"
-                                    onClick={(e) => showHidePassword(e.target)}>
-                                
+                                    onClick={(event) => showHidePassword(event.currentTarget)}
+                                >
                                     <svg viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12Z" />
                                         <circle cx="12" cy="12" r="3.2" />
                                     </svg>
                                 </button>
                             </div>
+                            <small id="password-error" className="password-register-form__hint"></small>
                         </div>
 
                         <div className="register-form__group">
-                            <label htmlFor="confirmPassword">Подтвердите пароль</label>
+                            <label htmlFor="confirm-password">Подтвердите пароль</label>
                             <div className="register-form__password">
                                 <input
                                     id="confirm-password"
@@ -81,27 +78,27 @@ class MainReg extends Component {
                                     type="password"
                                     placeholder="........"
                                 />
-                                <small id='confirm-error'></small>
                                 <button
                                     className="register-form__toggle"
                                     type="button"
                                     aria-label="Показать подтверждение пароля"
-                                    onClick={(e) => showHideConfirmPassword(e.target)}>
-                                
+                                    onClick={(event) => showHideConfirmPassword(event.currentTarget)}
+                                >
                                     <svg viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12Z" />
                                         <circle cx="12" cy="12" r="3.2" />
                                     </svg>
                                 </button>
                             </div>
+                            <small id="confirm-error" className="confirm-register-form__hint"></small>
                         </div>
 
                         <label className="register-form__agreement">
-                            <input id='terms' type="checkbox" name="agreement" />
+                            <input id="terms" type="checkbox" name="agreement" />
                             <span>
                                 Я согласен с <a href="/">условиями использования</a> и <a href="/">политикой конфиденциальности</a>
                             </span>
-                            <small id='terms-error'></small>
+                            <small id="terms-error" className="terms-register-form__hint"></small>
                         </label>
 
                         <button className="register-form__submit" type="submit">
