@@ -131,6 +131,7 @@ export function registerUser() {
             const text = await response.text();
 
             if(text == "Успешно") {
+                window.location.href = '/Index.html';
                 return;
             }
 
