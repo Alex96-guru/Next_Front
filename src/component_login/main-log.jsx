@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import logo from '../icons/Logo.svg';
+import { loginUser, showHidePassword } from '../login';
 
 class MainLog extends Component {
+    componentDidMount() {
+        loginUser();
+    }
     render() {
         return (
             <main className="login-page">
@@ -17,15 +21,16 @@ class MainLog extends Component {
                         <p>Войдите в свой аккаунт</p>
                     </header>
 
-                    <form className="login-form">
+                    <form id='form' className="login-form">
                         <div className="login-form__group">
                             <label htmlFor="email">Email</label>
                             <input
                                 id="email"
                                 name="email"
-                                type="email"
+                                type="text"
                                 placeholder="example@mail.com"
                             />
+                            <small id='email-error'></small>
                         </div>
 
                         <div className="login-form__group">
@@ -37,10 +42,12 @@ class MainLog extends Component {
                                     type="password"
                                     placeholder="........"
                                 />
+                                <small id='password-error'></small>
                                 <button
                                     className="login-form__toggle"
                                     type="button"
                                     aria-label="Показать пароль"
+                                    onClick={(event) => showHidePassword(event.currentTarget)}
                                 >
                                     <svg viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12Z" />

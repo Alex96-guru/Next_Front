@@ -10,19 +10,7 @@ export function showHidePassword(target) {
     }
 }
 
-export function showHideConfirmPassword(target) {
-    const reInput = document.getElementById('confirm-password');
-
-    if (reInput.getAttribute('type') === 'password') {
-        target.classList.add('view');
-        reInput.setAttribute('type', 'text');
-    } else {
-        target.classList.remove('view');
-        reInput.setAttribute('type', 'password');
-    }
-}
-
-export function registerUser() {
+export function loginUser() {
     const form = document.getElementById('form');
 
     if (!form || form.dataset.validationReady === 'true') {
@@ -34,41 +22,23 @@ export function registerUser() {
     form.addEventListener('submit', async function (event) {
         event.preventDefault();
 
-        const nameInput = document.getElementById('name');
         const emailInput = document.getElementById('email');
         const passwordInput = document.getElementById('password');
-        const confirmInput = document.getElementById('confirm-password');
-        const termsBox = document.getElementById('terms');
 
-        const nameError = document.getElementById('name-error');
         const emailError = document.getElementById('email-error');
         const passwordError = document.getElementById('password-error');
-        const confirmError = document.getElementById('confirm-error');
-        const termsError = document.getElementById('terms-error');
 
-        const name = nameInput.value.trim();
         const email = emailInput.value.trim();
         const password = passwordInput.value;
-        const confirm = confirmInput.value;
 
         let hasError = false;
 
-        nameInput.style.borderColor = '';
         emailInput.style.borderColor = '';
         passwordInput.style.borderColor = '';
-        confirmInput.style.borderColor = '';
 
-        nameError.innerText = '';
         emailError.innerText = '';
         passwordError.innerText = '';
-        confirmError.innerText = '';
-        termsError.innerText = '';
 
-        if (name.length === 0) {
-            nameInput.style.borderColor = 'red';
-            nameError.innerText = 'Заполните поле';
-            hasError = true;
-        }
 
         if (email.length === 0) {
             emailInput.style.borderColor = 'red';
@@ -86,37 +56,17 @@ export function registerUser() {
             hasError = true;
         }
 
-        if (confirm.length < 6) {
-            confirmInput.style.borderColor = 'red';
-            confirmError.innerText = 'Минимум 6 символов';
-            hasError = true;
-        } else if (confirm !== password) {
-            confirmInput.style.borderColor = 'red';
-            confirmError.innerText = 'Пароли не совпадают';
-            hasError = true;
-        }
-
-        if (!termsBox.checked) {
-            termsError.innerText = 'Подтвердите согласие';
-            hasError = true;
-        }
-
-        let terms = true;
-
         if (hasError) {
             return;
         }
 
         const newPost = {
-            name: name,
             email: email,
             password: password,
-            confirm: confirm,
-            terms: terms
         };
 
         try {
-            const response = await fetch('http://localhost:8086/auth/register', {
+            const response = await fetch('http://localhost:8086/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -131,23 +81,22 @@ export function registerUser() {
                 return;
             }
 
-            emailInput.style.borderColor = 'red';
-            emailError.innerText = text;
+            if(text === 'Пользователя с такой почтой нет') {
+                emailError.innerText = text;
+                emailInput.style.borderColor = 'red';
+            }
+
+            if(text === 'Неверный пароль') {
+                passwordError.innerText = text;
+                passwordInput.style.borderColor = 'red';
+            }
+
         } catch (error) {
             console.error('Ошибка: ' + error);
         }
     });
-
-    const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
-    const confirmInput = document.getElementById('confirm-password');
-    const termsBox = document.getElementById('terms');
-
-    nameInput?.addEventListener('input', function () {
-        nameInput.style.borderColor = '';
-        document.getElementById("name-error").innerText = '';
-    });
 
     emailInput?.addEventListener('input', function () {
         emailInput.style.borderColor = '';
@@ -157,14 +106,5 @@ export function registerUser() {
     passwordInput?.addEventListener('input', function () {
         passwordInput.style.borderColor = '';
         document.getElementById("password-error").innerText = '';
-    });
-
-    confirmInput?.addEventListener('input', function () {
-        confirmInput.style.borderColor = '';
-        document.getElementById("confirm-error").innerText = '';
-    });
-
-    termsBox?.addEventListener('change', function () {
-        document.getElementById("terms-error").innerText = '';
     });
 }
