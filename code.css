@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Boldonse&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --Boldonse: 'Boldonse', sans-serif;
+    --Inter: 'Inter', sans-serif;
+    --Montserrat: 'Montserrat', sans-serif;
+    --border-color: #d4d9e3;
+    --text-color: #0d2246;
+    --muted-color: #4f6280;
+    --accent-start: #ff6a00;
+    --accent-end: #ffc400;
+    --card-shadow: 0 28px 60px rgba(190, 99, 0, 0.18);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff7a00 0%, #ff8f00 55%, #ffc400 100%);
+    color: var(--text-color);
+    font-family: var(--Montserrat);
+    font-weight: 400;
+}
+
+#root {
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, small, button, input {
+    font-family: var(--Inter);
+}
+
+a {
+    text-decoration: none;
+}
+
+.code-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+}
+
+.code-card {
+    width: min(100%, 448px);
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: var(--card-shadow);
+    padding: 38px 32px 38px;
+}
+
+.code-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+}
+
+.code-logo__frame {
+    width: 84px;
+    height: 84px;
+    border-radius: 14px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(13, 34, 70, 0.12);
+}
+
+.code-logo__image {
+    width: 72px;
+    height: 72px;
+    display: block;
+    object-fit: contain;
+}
+
+.code-card__header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.code-card__header h1 {
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.code-card__header p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--muted-color);
+}
+
+.code-form {
+    display: grid;
+    gap: 18px;
+}
+
+.code-form__digits {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.code-form__digit {
+    width: 100%;
+    height: 58px;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    background: #ffffff;
+    color: var(--text-color);
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.code-form__digit:focus {
+    border-color: rgba(255, 122, 0, 0.8);
+    box-shadow: 0 0 0 4px rgba(255, 122, 0, 0.12);
+    transform: translateY(-1px);
+}
+
+.code-form__error {
+    min-height: 18px;
+    color: #e63a2f;
+    font-size: 13px;
+    text-align: center;
+}
+
+.code-form__submit {
+    height: 52px;
+    border: 0;
+    border-radius: 16px;
+    background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 14px 30px rgba(255, 122, 0, 0.26);
+}
+
+.code-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 30px 0 24px;
+    color: #7f8ba0;
+    font-size: 15px;
+    text-transform: lowercase;
+}
+
+.code-divider::before,
+.code-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #d7ddea;
+}
+
+.code-actions {
+    display: grid;
+    gap: 10px;
+}
+
+.code-actions__text {
+    text-align: center;
+    color: var(--muted-color);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.code-actions__text a {
+    color: #ff6a00;
+    font-weight: 600;
+}
+
+@media (max-width: 520px) {
+    .code-card {
+        padding: 28px 20px 30px;
+        border-radius: 20px;
+    }
+
+    .code-logo {
+        margin-bottom: 24px;
+    }
+
+    .code-logo__frame {
+        width: 76px;
+        height: 76px;
+    }
+
+    .code-logo__image {
+        width: 64px;
+        height: 64px;
+    }
+
+    .code-form__digits {
+        gap: 8px;
+    }
+
+    .code-form__digit {
+        height: 52px;
+        font-size: 20px;
+    }
+}

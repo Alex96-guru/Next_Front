@@ -1,6 +1,10 @@
 export function showHidePassword(target) {
     const input = document.getElementById('password');
 
+    if (!input) {
+        return;
+    }
+
     if (input.getAttribute('type') === 'password') {
         target.classList.add('view');
         input.setAttribute('type', 'text');
@@ -19,14 +23,14 @@ export function loginUser() {
 
     form.dataset.validationReady = 'true';
 
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+
+    const emailError = document.getElementById('email-error');
+    const passwordError = document.getElementById('password-error');
+
     form.addEventListener('submit', async function (event) {
         event.preventDefault();
-
-        const emailInput = document.getElementById('email');
-        const passwordInput = document.getElementById('password');
-
-        const emailError = document.getElementById('email-error');
-        const passwordError = document.getElementById('password-error');
 
         const email = emailInput.value.trim();
         const password = passwordInput.value;
@@ -38,7 +42,6 @@ export function loginUser() {
 
         emailError.innerText = '';
         passwordError.innerText = '';
-
 
         if (email.length === 0) {
             emailInput.style.borderColor = 'red';
@@ -61,8 +64,8 @@ export function loginUser() {
         }
 
         const newPost = {
-            email: email,
-            password: password,
+            email,
+            password,
         };
 
         try {
@@ -77,34 +80,31 @@ export function loginUser() {
             const text = await response.text();
 
             if (text === 'Успешно') {
-                window.location.href = '/Index.html';
+                window.location.href = '/auth/code/Code.html';
                 return;
             }
 
-            if(text === 'Пользователя с такой почтой нет') {
+            if (text === 'Пользователя с такой почтой нет') {
                 emailError.innerText = text;
                 emailInput.style.borderColor = 'red';
             }
 
-            if(text === 'Неверный пароль') {
+            if (text === 'Неверный пароль') {
                 passwordError.innerText = text;
                 passwordInput.style.borderColor = 'red';
             }
-
         } catch (error) {
             console.error('Ошибка: ' + error);
         }
     });
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
 
     emailInput?.addEventListener('input', function () {
         emailInput.style.borderColor = '';
-        document.getElementById("email-error").innerText = '';
+        document.getElementById('email-error').innerText = '';
     });
 
     passwordInput?.addEventListener('input', function () {
         passwordInput.style.borderColor = '';
-        document.getElementById("password-error").innerText = '';
+        document.getElementById('password-error').innerText = '';
     });
 }
